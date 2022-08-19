@@ -3,7 +3,8 @@ _target_: pytorch_lightning.Trainer
 default_root_dir: ${paths.output_dir}
 
 min_epochs: 1 # prevents early stopping
-max_epochs: 10
+max_epochs: 25
+max_steps: 2000
 
 accelerator: cpu
 devices: 1
@@ -19,7 +20,7 @@ num_sanity_val_steps: 2
 log_every_n_steps: 5
 check_val_every_n_epoch: 1
 enable_progress_bar: True
-
+progress_bar_refresh_rate: 5
 
 #logger: True
 #enable_checkpointing: True
