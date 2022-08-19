@@ -14,3 +14,52 @@ devices: 1
 # set True to to ensure deterministic results
 # makes training slower but gives more reproducibility than just setting seeds
 deterministic: False
+
+num_sanity_val_steps: 2
+log_every_n_steps: 5
+check_val_every_n_epoch: 1
+enable_progress_bar: True
+
+
+#logger: True
+#enable_checkpointing: True
+#callbacks: None
+#gradient_clip_val: 2
+#gradient_clip_algorithm: None
+#num_nodes: 1
+#num_processes: None
+#gpus: None
+#auto_select_gpus: False
+#tpu_cores: None
+#ipus: None
+
+#overfit_batches: 0.0
+
+#fast_dev_run: False
+#accumulate_grad_batches: None
+#min_steps: None
+#max_time: None
+#limit_train_batches: None
+#limit_val_batches: None
+#limit_test_batches: None
+#limit_predict_batches: None
+#val_check_interval: None
+
+#strategy: None
+#sync_batchnorm: False
+#enable_model_summary: True
+#weights_save_path: None
+
+#resume_from_checkpoint: None
+#profiler: None
+#benchmark: None
+#reload_dataloaders_every_n_epochs: 0
+#auto_lr_find: False
+#replace_sampler_ddp: True
+#detect_anomaly: False
+#auto_scale_batch_size: False
+#plugins: None
+#amp_backend: 'native'
+#amp_level: None
+#move_metrics_to_cpu: False
+#multiple_trainloader_mode: 'max_size_cycle'

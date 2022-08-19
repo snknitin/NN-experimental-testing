@@ -1,0 +1,20 @@
+_target_: src.models.model_new.NetQtyModel
+
+lr: 1.380384264602885e-07
+
+optimizer:
+  _target_: torch.optim.Adam
+  _partial_: true
+  weight_decay: 0.0
+
+encoder:
+  _target_: src.models.components.models.GNNEncoder
+  hidden_channels: 64
+  out_channels: 8
+  num_layers: 2
+
+
+decoder:
+  _target_: src.models.components.models.EdgeDecoder
+  hidden_channels: 64
+  out_channels: 8
