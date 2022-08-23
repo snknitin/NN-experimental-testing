@@ -14,6 +14,7 @@ import omegaconf
 import pyrootutils
 
 
+
 class IdentityEncoder(object):
     def __init__(self, dtype=None):
         self.dtype = dtype
