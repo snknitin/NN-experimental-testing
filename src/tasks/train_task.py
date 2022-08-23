@@ -1,5 +1,5 @@
 from typing import List, Tuple
-
+import torch
 import hydra
 import pytorch_lightning as pl
 from omegaconf import DictConfig
@@ -35,6 +35,12 @@ def train(cfg: DictConfig) -> Tuple[dict, dict]:
 
     log.info(f"Instantiating model <{cfg.model._target_}>")
     model: LightningModule = hydra.utils.instantiate(cfg.model)
+
+    with torch.no_grad():  # Initialize lazy modules.
+        datamodule.prepare_data()
+        datamodule.setup()
+        batch = next(iter(datamodule.train_dataloader()))
+        out = model(batch.x_dict, batch.edge_index_dict, batch.edge_attr_dict)
 
     log.info("Instantiating callbacks...")
     callbacks: List[Callback] = utils.instantiate_callbacks(cfg.get("callbacks"))
